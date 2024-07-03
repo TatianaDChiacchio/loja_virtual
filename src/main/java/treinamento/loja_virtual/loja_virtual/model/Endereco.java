@@ -3,6 +3,7 @@ package treinamento.loja_virtual.loja_virtual.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
+import treinamento.loja_virtual.loja_virtual.enums.TipoEndereco;
 
 @Entity
 @Table(name = "endereco")
@@ -46,9 +47,9 @@ public class Endereco {
         @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))
         private Pessoa pessoa;
 
-//        @Column(nullable = false)
-//        @Enumerated(EnumType.STRING)
-//        private TipoEndereco tipoEndereco;
+        @Column(nullable = false)
+        @Enumerated(EnumType.STRING)
+        private TipoEndereco tipoEndereco;
 
 
         @JsonIgnore
@@ -75,13 +76,13 @@ public class Endereco {
                 this.empresa = empresa;
         }
 
-//        public void setTipoEndereco(TipoEndereco tipoEndereco) {
-//                this.tipoEndereco = tipoEndereco;
-//        }
-//
-//        public TipoEndereco getTipoEndereco() {
-//                return tipoEndereco;
-//        }
+        public void setTipoEndereco(TipoEndereco tipoEndereco) {
+                this.tipoEndereco = tipoEndereco;
+        }
+
+        public TipoEndereco getTipoEndereco() {
+                return tipoEndereco;
+        }
 
         public Long getId() {
                 return id;
