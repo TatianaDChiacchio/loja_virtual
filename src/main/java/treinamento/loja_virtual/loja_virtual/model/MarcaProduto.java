@@ -36,9 +36,9 @@ public class MarcaProduto {
                 this.nomeDesc = nomeDesc;
         }
 
-        //        @ManyToOne(targetEntity = PessoaJuridica.class)
-//        @JoinColumn(name = "empresa_id", nullable = false,
-//                foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "empresa_id_fk"))
-//        private PessoaJuridica empresa;
+        @ManyToOne(targetEntity = PessoaJuridica.class)
+        @JoinColumn(name = "empresa_id", nullable = false,
+                foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "empresa_id_fk"))
+        private PessoaJuridica empresa;
 
     }

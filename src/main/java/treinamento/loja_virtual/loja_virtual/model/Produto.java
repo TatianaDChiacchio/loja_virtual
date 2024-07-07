@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "produto")
@@ -83,8 +85,8 @@ public class Produto implements Serializable {
     private MarcaProduto marcaProduto = new MarcaProduto();
 
 
-//    @OneToMany(mappedBy = "produto", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<ImagemProduto> imagens = new ArrayList<ImagemProduto>();
+    @OneToMany(mappedBy = "produto", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ImagemProduto> imagens = new ArrayList<ImagemProduto>();
 
     public Long getId() {
         return id;
@@ -230,15 +232,13 @@ public class Produto implements Serializable {
         this.marcaProduto = marcaProduto;
     }
 
+    public void setImagens(List<ImagemProduto> imagens) {
+        this.imagens = imagens;
+    }
 
-//
-//    public void setImagens(List<ImagemProduto> imagens) {
-//        this.imagens = imagens;
-//    }
-//
-//    public List<ImagemProduto> getImagens() {
-//        return imagens;
-//    }
+    public List<ImagemProduto> getImagens() {
+        return imagens;
+    }
 
 
     @Override

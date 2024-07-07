@@ -8,7 +8,9 @@ import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "vd_cp_loja_virt")
@@ -93,9 +95,8 @@ public class VendaCompraLojaVirtual implements Serializable {
 //    @Enumerated(EnumType.STRING)
 //    private StatusVendaLojaVirtual statusVendaLojaVirtual;
 
-//    @OneToMany(mappedBy = "vendaCompraLojaVirtual", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<ItemVendaLoja> itemVendaLojas = new ArrayList<ItemVendaLoja>();
-
+    @OneToMany(mappedBy = "vendaCompraLojaVirtual", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ItemVendaLoja> itemVendaLojas = new ArrayList<ItemVendaLoja>();
 
     public Long getId() {
         return id;
@@ -223,6 +224,14 @@ public class VendaCompraLojaVirtual implements Serializable {
 
     public void setEmpresa(PessoaJuridica empresa) {
         this.empresa = empresa;
+    }
+
+    public List<ItemVendaLoja> getItemVendaLojas() {
+        return itemVendaLojas;
+    }
+
+    public void setItemVendaLojas(List<ItemVendaLoja> itemVendaLojas) {
+        this.itemVendaLojas = itemVendaLojas;
     }
 
     @Override

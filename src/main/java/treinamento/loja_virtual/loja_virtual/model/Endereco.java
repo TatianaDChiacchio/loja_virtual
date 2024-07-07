@@ -25,7 +25,6 @@ public class Endereco {
         @Column(nullable = false)
         private String numero;
 
-
         private String complemento;
 
         @Column(nullable = false)
@@ -36,8 +35,6 @@ public class Endereco {
 
         @Column(nullable = false)
         private String cidade;
-
-
 
         @Column(nullable = true)
         private String estado;
@@ -50,7 +47,6 @@ public class Endereco {
         @Column(nullable = false)
         @Enumerated(EnumType.STRING)
         private TipoEndereco tipoEndereco;
-
 
         @JsonIgnore
         @ManyToOne(targetEntity = Pessoa.class)

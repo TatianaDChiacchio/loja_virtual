@@ -1,6 +1,7 @@
 package treinamento.loja_virtual.loja_virtual.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
@@ -16,12 +17,12 @@ public class FormaPagamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_forma_pagamento")
     private Long id;
 
-    //@NotNull(message = "Descrição deve ser informada")
+    @NotNull(message = "Descrição deve ser informada")
     @Column(nullable = false)
     private String descricao;
 
 
-    //@NotNull(message = "A empresa deve ser informada")
+    @NotNull(message = "A empresa deve ser informada")
     @ManyToOne(targetEntity = PessoaJuridica.class)
     @JoinColumn(name = "empresa_id", nullable = false,
             foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "empresa_id_fk"))

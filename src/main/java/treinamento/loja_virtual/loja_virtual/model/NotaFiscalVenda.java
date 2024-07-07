@@ -33,10 +33,10 @@ public class NotaFiscalVenda implements Serializable {
     @Column(columnDefinition = "text", nullable = false)
     private String pdf;
 
-//    @OneToOne
-//    @JoinColumn(name = "venda_compra_loja_virt_id", nullable = true,
-//            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "venda_compra_loja_virt_fk"))
-//    private VendaCompraLojaVirtual vendaCompraLojaVirtual;
+    @OneToOne
+    @JoinColumn(name = "venda_compra_loja_virt_id", nullable = true,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "venda_compra_loja_virt_fk"))
+    private VendaCompraLojaVirtual vendaCompraLojaVirtual;
 
 
     @ManyToOne(targetEntity = PessoaJuridica.class)
@@ -101,13 +101,13 @@ public class NotaFiscalVenda implements Serializable {
         this.pdf = pdf;
     }
 
- //   public VendaCompraLojaVirtual getVendaCompraLojaVirtual() {
-//        return vendaCompraLojaVirtual;
-//    }
-//
-//    public void setVendaCompraLojaVirtual(VendaCompraLojaVirtual vendaCompraLojaVirtual) {
-//        this.vendaCompraLojaVirtual = vendaCompraLojaVirtual;
-//    }
+    public VendaCompraLojaVirtual getVendaCompraLojaVirtual() {
+        return vendaCompraLojaVirtual;
+    }
+
+    public void setVendaCompraLojaVirtual(VendaCompraLojaVirtual vendaCompraLojaVirtual) {
+        this.vendaCompraLojaVirtual = vendaCompraLojaVirtual;
+    }
 
     public PessoaJuridica getEmpresa() {
         return empresa;

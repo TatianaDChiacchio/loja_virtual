@@ -1,6 +1,8 @@
 package treinamento.loja_virtual.loja_virtual.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import treinamento.loja_virtual.loja_virtual.enums.StatusContaPagar;
 
 import java.io.Serializable;
@@ -18,23 +20,23 @@ public class ContaPagar implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_conta_pagar")
     private Long id;
 
-//    @NotEmpty(message = "Informe o campo descrição da conta a pagar")
-//    @NotNull(message = "Informe o campo descrição da conta a pagar")
+    @NotEmpty(message = "Informe o campo descrição da conta a pagar")
+    @NotNull(message = "Informe o campo descrição da conta a pagar")
     @Column(nullable = false)
     private String descricao;
 
-//    @NotNull(message = "Informe o valor toral da conta a pagar")
+    @NotNull(message = "Informe o valor toral da conta a pagar")
     @Column(nullable = false)
     private BigDecimal valorTotal;
 
     private BigDecimal valorDesconto;
 
-   // @NotNull(message = "Inforte o status da conta a pagar")
+    @NotNull(message = "Inforte o status da conta a pagar")
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusContaPagar status;
 
-   // @NotNull(message = "Informa a dara de vencimento da conta a pagar")
+    @NotNull(message = "Informa a dara de vencimento da conta a pagar")
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dtVencimento;

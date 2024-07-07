@@ -19,19 +19,11 @@ public class CategoriaProduto implements Serializable {
     private String nomeDesc;
 
 
-//    @ManyToOne(targetEntity = Pessoa.class)
-//    @JoinColumn(name = "empresa_id", nullable = false,
-//            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "empresa_id_fk"))
-//    private PessoaJuridica empresa = new PessoaJuridica();
+    @ManyToOne(targetEntity = Pessoa.class)
+    @JoinColumn(name = "empresa_id", nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "empresa_id_fk"))
+    private PessoaJuridica empresa = new PessoaJuridica();
 
-
-//    public PessoaJuridica getEmpresa() {
-//        return empresa;
-//    }
-//
-//    public void setEmpresa(PessoaJuridica empresa) {
-//        this.empresa = empresa;
-//    }
 
     public Long getId() {
         return id;
@@ -47,6 +39,14 @@ public class CategoriaProduto implements Serializable {
 
     public void setNomeDesc(String nomeDesc) {
         this.nomeDesc = nomeDesc;
+    }
+
+    public PessoaJuridica getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(PessoaJuridica empresa) {
+        this.empresa = empresa;
     }
 
     @Override

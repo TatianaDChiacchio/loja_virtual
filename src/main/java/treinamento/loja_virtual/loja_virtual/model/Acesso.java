@@ -18,23 +18,15 @@ public class Acesso implements GrantedAuthority {
     private String descricao; /* Acesso ex: ROLE_ADMIN ou ROLE_SECRETARIO */
 
 
-//    @ManyToOne(targetEntity = Pessoa.class)
-//    @JoinColumn(name = "empresa_id", nullable = false,
-//            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "empresa_id_fk"))
-//    private PessoaJuridica empresa = new PessoaJuridica();
+    @ManyToOne(targetEntity = Pessoa.class)
+    @JoinColumn(name = "empresa_id", nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "empresa_id_fk"))
+    private PessoaJuridica empresa = new PessoaJuridica();
 //
 //    @JsonIgnore
 //    @Override
 //    public String getAuthority() {
 //        return this.descricao;
-//    }
-
-//    public void setEmpresa(PessoaJuridica empresa) {
-//        this.empresa = empresa;
-//    }
-//
-//    public PessoaJuridica getEmpresa() {
-//        return empresa;
 //    }
 
 
@@ -52,6 +44,14 @@ public class Acesso implements GrantedAuthority {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public void setEmpresa(PessoaJuridica empresa) {
+        this.empresa = empresa;
+    }
+
+    public PessoaJuridica getEmpresa() {
+        return empresa;
     }
 
     @Override

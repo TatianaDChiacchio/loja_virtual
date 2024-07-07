@@ -3,6 +3,7 @@ package treinamento.loja_virtual.loja_virtual.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 
@@ -17,7 +18,7 @@ public class NotaItemProduto implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_nota_item_produto")
     private Long id;
 
-    //@Size(min = 1, message = "Informe a quantidade do produto")
+    @Size(min = 1, message = "Informe a quantidade do produto")
     @Column(nullable = false)
     private Double quantidade;
 

@@ -3,6 +3,7 @@ package treinamento.loja_virtual.loja_virtual.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -31,7 +32,7 @@ public class NotaFiscalCompra implements Serializable {
 
     private String descricaoObs;
 
-    //@Size(min = 1, message = "Informe o total da nota maior que R$ 1 real")
+    @Size(min = 1, message = "Informe o total da nota maior que R$ 1 real")
     @NotNull(message = "Informe o total da nota")
     @Column(nullable = false)
     private BigDecimal valorTotal;
